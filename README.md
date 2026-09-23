@@ -83,6 +83,7 @@ scripts/todo.sh
 | [08-siguientes-pasos.md](08-siguientes-pasos.md) | De esto a producción: nube (AWS/OCI), MongoDB Atlas y seguridad |
 | [09-catalogo-y-clientes.md](09-catalogo-y-clientes.md) | El catálogo público y el registro de clientes (módulo extra) |
 | [10-pedidos-y-carrito.md](10-pedidos-y-carrito.md) | El carrito de compras y los pedidos online (módulo extra) |
+| [11-guia-defensa-commits.md](11-guia-defensa-commits.md) | Qué responder por cada commit en la defensa del proyecto |
 
 ## ✅ Requisitos del enunciado cumplidos
 
