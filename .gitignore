@@ -1,0 +1,37 @@
+# ---------------------------------------------------------------------------
+# .gitignore — Archivos que Git debe IGNORAR
+#
+# Git registra el HISTORIAL de cambios del código. Pero hay cosas que
+# no deben subirse al repositorio:
+#   - dependencias (venv, node_modules): son pesadísimas y se reinstalan
+#   - bases de datos locales (los datos de desarrollo son personales)
+#   - secretos / configuraciones de máquina (.env)
+#   - la base de datos de MongoDB y sus logs
+#
+# Regla de oro: NUNCA se versiona nada que pueda regenerarse.
+# ---------------------------------------------------------------------------
+
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+db.sqlite3
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# MongoDB (binarios descargados y datos locales: no son código nuestro)
+mongodb/
+
+# Entornos y secretos
+.env
+*.env.local
+# Editor
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
