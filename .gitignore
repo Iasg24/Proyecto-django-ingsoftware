@@ -13,6 +13,7 @@
 
 # Python
 backend/venv/
+backend-fastapi/venv/
 __pycache__/
 *.pyc
 db.sqlite3
