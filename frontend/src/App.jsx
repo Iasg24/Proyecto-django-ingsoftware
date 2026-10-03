@@ -35,8 +35,14 @@ export default function App() {
       {/* Stripe redirige aquí después de pagar (con ?numero= y ?session_id=). */}
       <Route path="/pedido-exito" element={<PedidoExito />} />
 
-      {/* Sin sesión: todos van al login */}
-      <Route path="/" element={user ? <IrASuPanel user={user} /> : <Login />} />
+      {/* Ruta raíz: muestra la tienda (catálogo) para visitantes y clientes, o panel para jefe/vendedor */}
+      <Route
+        path="/"
+        element={user && (user.rol === 'vendedor' || user.rol === 'jefe') ? <IrASuPanel user={user} /> : <Catalogo />}
+      />
+
+      {/* Pantalla de inicio de sesión */}
+      <Route path="/login" element={user ? <IrASuPanel user={user} /> : <Login />} />
 
       {/* Con sesión: cada rol ve SOLO su panel.
           Si un vendedor intenta entrar a /jefe, se le redirige. */}

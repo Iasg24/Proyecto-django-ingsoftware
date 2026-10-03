@@ -32,14 +32,14 @@ crear_usuario(
     usuario='vendedor',
     password='vendedor123',
     rol='vendedor',
-    nombre_completo='Camila Rojas Pérez',
+    nombre_completo='ignacio sanchez',
 )
 
 crear_usuario(
     usuario='jefe',
     password='jefe123',
     rol='jefe',
-    nombre_completo='Andrés Fuentes Silva',
+    nombre_completo='ignacio sanchez',
 )
 
 # ---------------------------------------------------------------------------

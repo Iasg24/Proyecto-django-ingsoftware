@@ -49,11 +49,10 @@ export default function Registro() {
   return (
     <div className="login-fondo">
       <div className="login-tarjeta">
-        <div className="login-logo">🧑‍🤝‍🧑</div>
-        <h1>Crear cuenta de cliente</h1>
+        <div className="login-logo">🏍️</div>
+        <h1>MOTO<span className="texto-rojo">REPUESTOS</span></h1>
         <p className="login-subtitulo">
-          Opcional: guarda tus datos para comprar más rápido la próxima vez.
-          También puedes seguir navegando <Link to="/catalogo">sin registrarte</Link>.
+          Registro de Cliente Rider — Guarda tus datos para compras y despachos rápidos
         </p>
 
         <form onSubmit={handleSubmit}>
@@ -89,7 +88,7 @@ export default function Registro() {
         </form>
 
         <p className="login-ayuda">
-          ¿Ya tienes cuenta? <Link to="/">Inicia sesión</Link>
+          ¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link>
         </p>
       </div>
     </div>

@@ -46,17 +46,17 @@ export default function Login() {
     <div className="login-fondo">
       <div className="login-tarjeta">
         <div className="login-logo">🏍️</div>
-        <h1>Bazar de Repuestos</h1>
-        <p className="login-subtitulo">Control de ventas — Tienda de repuestos de motocicleta</p>
+        <h1>MOTO<span className="texto-rojo">REPUESTOS</span></h1>
+        <p className="login-subtitulo">Portal de Clientes y Punto de Venta</p>
 
         <form onSubmit={handleSubmit}>
           <label>
-            Usuario
+            Usuario / Email
             <input
               type="text"
               value={usuario}
               onChange={(e) => setUsuario(e.target.value)}
-              placeholder="Ej: vendedor"
+              placeholder="Ej: vendedor o maria@mail.com"
               required
               autoFocus
             />
@@ -76,19 +76,42 @@ export default function Login() {
           {error && <div className="alerta error">{error}</div>}
 
           <button type="submit" disabled={enviando} className="boton-primario">
-            {enviando ? 'Validando...' : 'Ingresar'}
+            {enviando ? 'Iniciando sesión...' : 'Ingresar al Sistema ➔'}
           </button>
         </form>
 
         <div className="login-ayuda">
-          <p><strong>Usuarios de prueba</strong></p>
-          <p>Vendedor: <code>vendedor</code> / <code>vendedor123</code></p>
-          <p>Jefe de Ventas: <code>jefe</code> / <code>jefe123</code></p>
-          <p>Cliente: <code>maria@mail.com</code> / <code>maria123</code></p>
+          <p><strong>Cuentas de Acceso Rápido:</strong></p>
+          <div style={{ display: 'flex', gap: '6px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '6px' }}>
+            <button
+              type="button"
+              className="chip-pago"
+              style={{ cursor: 'pointer', background: '#e2e8f0', color: '#1e293b' }}
+              onClick={() => { setUsuario('vendedor'); setPassword('vendedor123'); }}
+            >
+              👤 Vendedor
+            </button>
+            <button
+              type="button"
+              className="chip-pago"
+              style={{ cursor: 'pointer', background: '#e2e8f0', color: '#1e293b' }}
+              onClick={() => { setUsuario('jefe'); setPassword('jefe123'); }}
+            >
+              👔 Jefe de Ventas
+            </button>
+            <button
+              type="button"
+              className="chip-pago"
+              style={{ cursor: 'pointer', background: '#fee2e2', color: '#dc2626' }}
+              onClick={() => { setUsuario('maria@mail.com'); setPassword('maria123'); }}
+            >
+              🛒 Cliente (María)
+            </button>
+          </div>
         </div>
 
         <div className="login-enlaces">
-          <Link to="/catalogo">Ver catálogo (sin entrar)</Link>
+          <Link to="/catalogo">← Volver a la Tienda de Motos</Link>
           {' · '}
           <Link to="/registro">Crear cuenta de cliente</Link>
         </div>

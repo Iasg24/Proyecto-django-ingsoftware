@@ -22,6 +22,8 @@ import { Link } from 'react-router-dom'
 import { useAuth } from '../auth.jsx'
 import { useCarrito } from '../carrito.jsx'
 import * as api from '../api.js'
+import Navbar from '../components/Navbar.jsx'
+import Footer from '../components/Footer.jsx'
 
 const EMOJIS = {
   Neumáticos: '🛞', Eléctricos: '🔋', Seguridad: '🪖', Lubricantes: '🛢️',
@@ -123,12 +125,13 @@ export default function Carrito() {
   if (pedidoCreado) {
     const pago = pedidoCreado.pago || {}
     return (
-      <div className="pagina">
-        <header className="barra">
-          <h1>🛒 Compra realizada</h1>
-          <Link to="/catalogo" className="boton-primario">Volver al catálogo</Link>
-        </header>
-        <main>
+      <div className="pagina-tienda">
+        <Navbar />
+        <main className="contenedor-tienda">
+          <header className="barra">
+            <h1>🛒 Compra realizada</h1>
+            <Link to="/catalogo" className="boton-primario">Volver al catálogo</Link>
+          </header>
           <div className="tarjeta exito-centro">
             <div className="alerta exito">
               🎉 ¡Gracias por tu compra! Tu <strong>pedido {pedidoCreado.numero}</strong>
@@ -163,6 +166,7 @@ export default function Carrito() {
             </div>
           </div>
         </main>
+        <Footer />
       </div>
     )
   }
@@ -170,31 +174,37 @@ export default function Carrito() {
   // ---------- Carro vacío ----------
   if (lineas.length === 0) {
     return (
-      <div className="pagina">
-        <header className="barra">
-          <h1>🛒 Tu carro</h1>
-        </header>
-        <main>
+      <div className="pagina-tienda">
+        <Navbar />
+        <main className="contenedor-tienda">
+          <header className="barra">
+            <h1>🛒 Tu carro de compras</h1>
+          </header>
           <div className="tarjeta exito-centro">
-            <p>Tu carro está vacío.</p>
-            <Link to="/catalogo" className="boton-primario">Ir al catálogo</Link>
+            <div className="icono-vacio">🛒</div>
+            <h3>Tu carro está vacío</h3>
+            <p className="pequeno">Explora nuestro catálogo de repuestos y accesorios para equipar tu moto.</p>
+            <br />
+            <Link to="/catalogo" className="boton-primario">Explorar catálogo de repuestos</Link>
           </div>
         </main>
+        <Footer />
       </div>
     )
   }
 
   // ---------- Carro con productos ----------
   return (
-    <div className="pagina">
-      <header className="barra">
-        <h1>🛒 Tu carro ({unidades} {unidades === 1 ? 'producto' : 'productos'})</h1>
-        <div className="barra-derecha">
-          <Link to="/catalogo" className="boton-enlace">← Seguir comprando</Link>
-        </div>
-      </header>
+    <div className="pagina-tienda">
+      <Navbar />
+      <main className="contenedor-tienda">
+        <header className="barra">
+          <h1>🛒 Tu carro ({unidades} {unidades === 1 ? 'producto' : 'productos'})</h1>
+          <div className="barra-derecha">
+            <Link to="/catalogo" className="boton-enlace">← Seguir comprando</Link>
+          </div>
+        </header>
 
-      <main>
         <section className="tarjeta">
           <table className="tabla-reporte">
             <thead>
@@ -347,6 +357,7 @@ export default function Carrito() {
           </form>
         </section>
       </main>
+      <Footer />
     </div>
   )
 }
