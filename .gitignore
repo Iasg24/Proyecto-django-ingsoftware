@@ -36,3 +36,7 @@ mongodb/
 # Sistema operativo
 .DS_Store
 Thumbs.db
+
+# Archivos de entorno de Vite (credenciales de desarrollo, nunca a Git)
+.env.*
+*.local

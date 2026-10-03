@@ -169,21 +169,21 @@ export default function ModalAuth({ abierto, alCerrar, modoInicial = 'ambos' }) 
                     <button
                       type="button"
                       className="chip-demo"
-                      onClick={() => llenarDemo('vendedor', 'vendedor123')}
+                      onClick={() => llenarDemo('vendedor', import.meta.env.VITE_DEMO_VENDEDOR_PASS || '')}
                     >
                       👤 Vendedor
                     </button>
                     <button
                       type="button"
                       className="chip-demo"
-                      onClick={() => llenarDemo('jefe', 'jefe123')}
+                      onClick={() => llenarDemo('jefe', import.meta.env.VITE_DEMO_JEFE_PASS || '')}
                     >
                       👔 Jefe
                     </button>
                     <button
                       type="button"
                       className="chip-demo"
-                      onClick={() => llenarDemo('maria@mail.com', 'maria123')}
+                      onClick={() => llenarDemo('maria@mail.com', import.meta.env.VITE_DEMO_CLIENTE_PASS || '')}
                     >
                       🛒 María (Cliente)
                     </button>

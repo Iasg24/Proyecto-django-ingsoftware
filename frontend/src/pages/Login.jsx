@@ -91,7 +91,7 @@ export default function Login() {
                 type="button"
                 className="chip-pago"
                 style={{ cursor: 'pointer', background: '#e2e8f0', color: '#1e293b' }}
-                onClick={() => { setUsuario('vendedor'); setPassword('vendedor123'); }}
+                onClick={() => { setUsuario('vendedor'); setPassword(import.meta.env.VITE_DEMO_VENDEDOR_PASS || ''); }}
               >
                 👤 Vendedor
               </button>
@@ -99,7 +99,7 @@ export default function Login() {
                 type="button"
                 className="chip-pago"
                 style={{ cursor: 'pointer', background: '#e2e8f0', color: '#1e293b' }}
-                onClick={() => { setUsuario('jefe'); setPassword('jefe123'); }}
+                onClick={() => { setUsuario('jefe'); setPassword(import.meta.env.VITE_DEMO_JEFE_PASS || ''); }}
               >
                 👔 Jefe de Ventas
               </button>
@@ -107,7 +107,7 @@ export default function Login() {
                 type="button"
                 className="chip-pago"
                 style={{ cursor: 'pointer', background: '#fee2e2', color: '#dc2626' }}
-                onClick={() => { setUsuario('maria@mail.com'); setPassword('maria123'); }}
+                onClick={() => { setUsuario('maria@mail.com'); setPassword(import.meta.env.VITE_DEMO_CLIENTE_PASS || ''); }}
               >
                 🛒 Cliente (María)
               </button>
