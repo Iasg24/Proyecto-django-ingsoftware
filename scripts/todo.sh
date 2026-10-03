@@ -20,7 +20,9 @@ DIR="$(cd "$(dirname "$0")/.." && pwd)"
 start_all() {
   echo "▶ Encendiendo el sistema..."
   "$DIR/scripts/mongo.sh" start
-  "$DIR/scripts/backend.sh" start
+  # Backend por defecto: FastAPI (ver docs/14-migracion-fastapi.md).
+  # Para usar Django en su lugar: cambiar backend-fastapi.sh por backend.sh.
+  "$DIR/scripts/backend-fastapi.sh" start
   "$DIR/scripts/frontend.sh" start
   sleep 1
   echo ""
@@ -28,7 +30,7 @@ start_all() {
   echo "  SISTEMA LISTO. Abre el navegador en:"
   echo "  -----------------------------------------------------"
   echo "  Frontend : http://localhost:5173"
-  echo "  Backend  : http://localhost:8000/api/ventas/dia"
+  echo "  Backend  : http://localhost:8000/api/ventas/dia (FastAPI)"
   echo "  MongoDB  : mongodb://localhost:27017"
   echo "  -----------------------------------------------------"
   echo "  Usuarios: vendedor/vendedor123 | jefe/jefe123"
@@ -38,7 +40,8 @@ start_all() {
 stop_all() {
   echo "⏹ Apagando el sistema..."
   "$DIR/scripts/frontend.sh" stop
-  "$DIR/scripts/backend.sh" stop
+  "$DIR/scripts/backend-fastapi.sh" stop
+  "$DIR/scripts/backend.sh" stop 2>/dev/null
   "$DIR/scripts/mongo.sh" stop
   echo "Todo apagado."
 }
