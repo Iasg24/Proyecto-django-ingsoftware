@@ -49,7 +49,8 @@ stop_all() {
 status_all() {
   echo "Estado del sistema:"
   "$DIR/scripts/mongo.sh" status
-  if [ -f /tmp/backend.pid ]; then echo "Backend: CORRIENDO (PID $(cat /tmp/backend.pid))"; else echo "Backend: DETENIDO"; fi
+  if pgrep -f "uvicorn main:app" > /dev/null; then echo "Backend FastAPI: CORRIENDO"; else echo "Backend FastAPI: DETENIDO"; fi
+  if [ -f /tmp/backend.pid ]; then echo "Backend Django: CORRIENDO (PID $(cat /tmp/backend.pid))"; else echo "Backend Django: DETENIDO"; fi
   if [ -f /tmp/frontend.pid ]; then echo "Frontend: CORRIENDO (PID $(cat /tmp/frontend.pid))"; else echo "Frontend: DETENIDO"; fi
 }
 
