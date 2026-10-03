@@ -159,33 +159,37 @@ export default function ModalAuth({ abierto, alCerrar, modoInicial = 'ambos' }) 
                 </a>
               </div>
 
-              {/* Botones de prueba rápidos */}
-              <div className="demo-chips-auth">
-                <span className="demo-label">Acceso rápido de prueba:</span>
-                <div className="chips-flex">
-                  <button
-                    type="button"
-                    className="chip-demo"
-                    onClick={() => llenarDemo('vendedor', 'vendedor123')}
-                  >
-                    👤 Vendedor
-                  </button>
-                  <button
-                    type="button"
-                    className="chip-demo"
-                    onClick={() => llenarDemo('jefe', 'jefe123')}
-                  >
-                    👔 Jefe
-                  </button>
-                  <button
-                    type="button"
-                    className="chip-demo"
-                    onClick={() => llenarDemo('maria@mail.com', 'maria123')}
-                  >
-                    🛒 María (Cliente)
-                  </button>
+              {/* Botones de prueba: SOLO en desarrollo (import.meta.env.DEV).
+                  En producción (vite build) no se compilan: las credenciales
+                  de prueba jamás llegan a internet. */}
+              {import.meta.env.DEV && (
+                <div className="demo-chips-auth">
+                  <span className="demo-label">Acceso rápido de prueba:</span>
+                  <div className="chips-flex">
+                    <button
+                      type="button"
+                      className="chip-demo"
+                      onClick={() => llenarDemo('vendedor', 'vendedor123')}
+                    >
+                      👤 Vendedor
+                    </button>
+                    <button
+                      type="button"
+                      className="chip-demo"
+                      onClick={() => llenarDemo('jefe', 'jefe123')}
+                    >
+                      👔 Jefe
+                    </button>
+                    <button
+                      type="button"
+                      className="chip-demo"
+                      onClick={() => llenarDemo('maria@mail.com', 'maria123')}
+                    >
+                      🛒 María (Cliente)
+                    </button>
+                  </div>
                 </div>
-              </div>
+              )}
             </form>
           </div>
 

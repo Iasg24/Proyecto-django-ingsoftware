@@ -80,35 +80,40 @@ export default function Login() {
           </button>
         </form>
 
-        <div className="login-ayuda">
-          <p><strong>Cuentas de Acceso Rápido:</strong></p>
-          <div style={{ display: 'flex', gap: '6px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '6px' }}>
-            <button
-              type="button"
-              className="chip-pago"
-              style={{ cursor: 'pointer', background: '#e2e8f0', color: '#1e293b' }}
-              onClick={() => { setUsuario('vendedor'); setPassword('vendedor123'); }}
-            >
-              👤 Vendedor
-            </button>
-            <button
-              type="button"
-              className="chip-pago"
-              style={{ cursor: 'pointer', background: '#e2e8f0', color: '#1e293b' }}
-              onClick={() => { setUsuario('jefe'); setPassword('jefe123'); }}
-            >
-              👔 Jefe de Ventas
-            </button>
-            <button
-              type="button"
-              className="chip-pago"
-              style={{ cursor: 'pointer', background: '#fee2e2', color: '#dc2626' }}
-              onClick={() => { setUsuario('maria@mail.com'); setPassword('maria123'); }}
-            >
-              🛒 Cliente (María)
-            </button>
+        {/* Cuentas de acceso rápido: SOLO en desarrollo.
+            En producción (vite build) esta sección no se compila y las
+            credenciales de prueba no llegan a internet. */}
+        {import.meta.env.DEV && (
+          <div className="login-ayuda">
+            <p><strong>Cuentas de Acceso Rápido:</strong></p>
+            <div style={{ display: 'flex', gap: '6px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '6px' }}>
+              <button
+                type="button"
+                className="chip-pago"
+                style={{ cursor: 'pointer', background: '#e2e8f0', color: '#1e293b' }}
+                onClick={() => { setUsuario('vendedor'); setPassword('vendedor123'); }}
+              >
+                👤 Vendedor
+              </button>
+              <button
+                type="button"
+                className="chip-pago"
+                style={{ cursor: 'pointer', background: '#e2e8f0', color: '#1e293b' }}
+                onClick={() => { setUsuario('jefe'); setPassword('jefe123'); }}
+              >
+                👔 Jefe de Ventas
+              </button>
+              <button
+                type="button"
+                className="chip-pago"
+                style={{ cursor: 'pointer', background: '#fee2e2', color: '#dc2626' }}
+                onClick={() => { setUsuario('maria@mail.com'); setPassword('maria123'); }}
+              >
+                🛒 Cliente (María)
+              </button>
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="login-enlaces">
           <Link to="/catalogo">← Volver a la Tienda de Motos</Link>
