@@ -92,7 +92,7 @@ Notation). Es un formato de texto que cualquier lenguaje entiende:
   "token": "3f2a9c1b-8d7e-4f5a-9b2c-1d0e2f3a4b5c",
   "rol": "vendedor",
   "rol_nombre": "Vendedor",
-  "nombre": "Camila Rojas Pérez"
+  "nombre": "ignacio sanchez"
 }
 ```
 

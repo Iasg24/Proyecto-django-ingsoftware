@@ -81,8 +81,10 @@ scripts/todo.sh
 | [06-el-viaje-de-una-venta.md](06-el-viaje-de-una-venta.md) | Paso a paso técnico de una venta real, de la pantalla a la base de datos |
 | [07-git-y-control-de-versiones.md](07-git-y-control-de-versiones.md) | Git: el control de versiones de este proyecto, con comandos prácticos |
 | [08-siguientes-pasos.md](08-siguientes-pasos.md) | De esto a producción: nube (AWS/OCI), MongoDB Atlas y seguridad |
-| [09-catalogo-y-clientes.md](09-catalogo-y-clientes.md) | El catálogo público y el registro de clientes (módulo extra) |
-| [10-pedidos-y-carrito.md](10-pedidos-y-carrito.md) | El carrito de compras y los pedidos online (módulo extra) |
+| [10-pedidos-y-carrito.md](docs/10-pedidos-y-carrito.md) | El carrito de compras y los pedidos online (módulo extra) |
+| [11-guia-defensa-commits.md](docs/11-guia-defensa-commits.md) | Qué responder por cada commit en la defensa del proyecto |
+| [12-guia-interrogacion-oral.md](docs/12-guia-interrogacion-oral.md) | Preguntas y respuestas típicas de la evaluación oral |
+| [13-rediseno-frontend-y-modal-auth.md](docs/13-rediseno-frontend-y-modal-auth.md) | Rediseño e-commerce (Megabytes/Motolike), catálogo con categorías y modal de autenticación rápida |
 
 ## ✅ Requisitos del enunciado cumplidos
 
@@ -118,3 +120,5 @@ scripts/todo.sh
 | La tienda confirma/rechaza pedidos → crea ventas con folio y descuenta stock | `confirmar_pedido()` + sección "Pedidos online" en `Jefe.jsx` |
 | **Pago real con Stripe (modo prueba)**: tarjeta/transferencia/efectivo al retirar | `pedidos/pagos.py` + `PedidoExito.jsx` (activar: `backend/.env`, ver docs/10) |
 | Fotos reales del catálogo (licencia libre) | `frontend/public/imagenes/` + `scripts/descargar_fotos.py` |
+| **Rediseño e-commerce Motorsport** (estilo Megabytes) con categorías y carrusel hero | `Navbar.jsx` + `Catalogo.jsx` + `Footer.jsx` + `styles.css` (ver docs/13) |
+| **Modal de autenticación flotante** (Acceder/Registrarse sin cambiar de ventana) | `ModalAuth.jsx` (estilo Motolike, ver docs/13) |
