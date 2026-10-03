@@ -39,6 +39,8 @@ stop() {
 status() {
   if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
     echo "MongoDB está CORRIENDO (PID $(cat "$PIDFILE"))."
+  elif pgrep -x mongod > /dev/null 2>&1; then
+    echo "MongoDB está CORRIENDO (servicio del sistema, PID $(pgrep -x mongod | head -1))."
   else
     echo "MongoDB está DETENIDO."
   fi
