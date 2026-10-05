@@ -59,9 +59,7 @@ export default function Registro() {
           <label>Nombre completo
             <input value={form.nombre} onChange={(e) => cambiar('nombre', e.target.value)} placeholder="Ej: María Pérez" required />
           </label>
-          <label>RUT
-            <input value={form.rut} onChange={(e) => cambiar('rut', e.target.value)} placeholder="Ej: 12.345.678-9" required />
-          </label>
+
           <label>Email
             <input type="email" value={form.email} onChange={(e) => cambiar('email', e.target.value)} placeholder="Ej: maria@mail.com" required />
           </label>

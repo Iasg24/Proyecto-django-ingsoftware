@@ -16,7 +16,6 @@ export default function ModalAuth({ abierto, alCerrar, modoInicial = 'ambos' }) 
 
   // Estado del formulario de Registro
   const [regNombre, setRegNombre] = useState('')
-  const [regRut, setRegRut] = useState('')
   const [regEmail, setRegEmail] = useState('')
   const [regPassword, setRegPassword] = useState('')
   const [errorRegistro, setErrorRegistro] = useState('')
@@ -57,7 +56,6 @@ export default function ModalAuth({ abierto, alCerrar, modoInicial = 'ambos' }) 
     try {
       await api.registrarCliente({
         nombre: regNombre.trim(),
-        rut: regRut.trim(),
         email: regEmail.trim(),
         password: regPassword,
       })
@@ -75,11 +73,6 @@ export default function ModalAuth({ abierto, alCerrar, modoInicial = 'ambos' }) 
     }
   }
 
-  // Relleno rápido para pruebas
-  const llenarDemo = (u, p) => {
-    setUsuarioLogin(u)
-    setPasswordLogin(p)
-  }
 
   return (
     <div className="modal-auth-backdrop" onClick={alCerrar}>
@@ -159,37 +152,7 @@ export default function ModalAuth({ abierto, alCerrar, modoInicial = 'ambos' }) 
                 </a>
               </div>
 
-              {/* Botones de prueba: SOLO en desarrollo (import.meta.env.DEV).
-                  En producción (vite build) no se compilan: las credenciales
-                  de prueba jamás llegan a internet. */}
-              {import.meta.env.DEV && (
-                <div className="demo-chips-auth">
-                  <span className="demo-label">Acceso rápido de prueba:</span>
-                  <div className="chips-flex">
-                    <button
-                      type="button"
-                      className="chip-demo"
-                      onClick={() => llenarDemo('vendedor', import.meta.env.VITE_DEMO_VENDEDOR_PASS || '')}
-                    >
-                      👤 Vendedor
-                    </button>
-                    <button
-                      type="button"
-                      className="chip-demo"
-                      onClick={() => llenarDemo('jefe', import.meta.env.VITE_DEMO_JEFE_PASS || '')}
-                    >
-                      👔 Jefe
-                    </button>
-                    <button
-                      type="button"
-                      className="chip-demo"
-                      onClick={() => llenarDemo('maria@mail.com', import.meta.env.VITE_DEMO_CLIENTE_PASS || '')}
-                    >
-                      🛒 María (Cliente)
-                    </button>
-                  </div>
-                </div>
-              )}
+
             </form>
           </div>
 
@@ -217,16 +180,7 @@ export default function ModalAuth({ abierto, alCerrar, modoInicial = 'ambos' }) 
                 />
               </div>
 
-              <div className="campo-auth">
-                <label>RUT <span className="requerido">*</span></label>
-                <input
-                  type="text"
-                  value={regRut}
-                  onChange={(e) => setRegRut(e.target.value)}
-                  placeholder="Ej: 19.876.543-2"
-                  required
-                />
-              </div>
+
 
               <div className="campo-auth">
                 <label>Dirección de correo electrónico <span className="requerido">*</span></label>

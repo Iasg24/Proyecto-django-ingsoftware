@@ -711,19 +711,21 @@ button {
   border-radius: var(--radio-lg);
   overflow: hidden;
   box-shadow: var(--sombra-md);
-  min-height: 400px;
+  min-height: 470px;
   display: flex;
   align-items: center;
   transition: background 0.5s ease;
+  box-sizing: border-box;
 }
 
 .hero-contenido {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  gap: 2rem;
-  padding: 3rem 3.5rem;
+  gap: 1.5rem;
+  padding: 2.2rem 3.5rem;
   width: 100%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
@@ -755,7 +757,7 @@ button {
 .hero-titulo {
   margin: 0 0 1rem;
   font-family: var(--fuente-display);
-  font-size: 2.4rem;
+  font-size: 2.25rem;
   font-weight: 900;
   color: #ffffff;
   line-height: 1.15;
@@ -830,12 +832,14 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
+  max-height: 400px;
 }
 
 .circulo-fondo-hero {
   position: absolute;
-  width: 240px;
-  height: 240px;
+  width: 320px;
+  height: 320px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(220, 38, 38, 0.35) 0%, rgba(0, 0, 0, 0) 70%);
   animation: pulsoCirculo 4s infinite alternate;
@@ -854,16 +858,31 @@ button {
   animation: flotar 3s ease-in-out infinite alternate;
 }
 
+.hero-imagen-slide {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 480px;
+  height: 360px;
+  max-height: 370px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.7));
+  animation: flotar 3.5s ease-in-out infinite alternate;
+  user-select: none;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
 @keyframes flotar {
   0% { transform: translateY(0px) rotate(0deg); }
-  100% { transform: translateY(-8px) rotate(-2deg); }
+  100% { transform: translateY(-8px) rotate(-1.5deg); }
 }
 
 .tarjeta-flotante-hero {
   position: absolute;
-  bottom: -15px;
-  right: 10px;
-  background: rgba(17, 24, 39, 0.85);
+  bottom: 8px;
+  right: 12px;
+  background: rgba(17, 24, 39, 0.88);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radio-md);

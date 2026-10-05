@@ -20,8 +20,8 @@ export default function Comprobante({ venta }) {
       {/* Encabezado del documento */}
       <div className="comprobante-cabecera">
         <div>
-          <h3>Bazar de Repuestos</h3>
-          <p className="pequeno">Av. Siempre Viva 123, Chile</p>
+          <h3>MotoRepuestos Store</h3>
+          <p className="pequeno">Calle Falkland Islands 777, Chillán</p>
           <p className="pequeno">RUT 11.111.111-1</p>
         </div>
         <div className="comprobante-tipo">

@@ -29,9 +29,8 @@ def registrarse(payload: dict = Body(...)):
     errores = []
     if not nombre:
         errores.append("El nombre es obligatorio.")
-    if not rut:
-        errores.append("El RUT es obligatorio.")
-    elif db().clientes.find_one({"rut": rut}):
+    # El RUT es opcional al registrarse
+    if rut and db().clientes.find_one({"rut": rut}):
         errores.append(f"Ya existe un cliente con el RUT {rut}.")
     if not email:
         errores.append("El email es obligatorio.")

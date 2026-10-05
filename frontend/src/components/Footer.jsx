@@ -17,7 +17,7 @@ export default function Footer() {
             <div className="icono-beneficio">🏬</div>
             <div className="texto-beneficio">
               <strong>Retiro en tienda</strong>
-              <span>Av. Departamental 1450, Santiago</span>
+              <span>Calle Falkland Islands 777, Chillán</span>
             </div>
           </div>
           <div className="item-beneficio">
@@ -68,15 +68,15 @@ export default function Footer() {
             <ul className="lista-info-footer">
               <li>
                 <span className="icono-li">📍</span>
-                <span>Av. Departamental 1450, San Miguel, Santiago de Chile</span>
+                <span>Calle Falkland Islands 777, Chillán, Chile</span>
               </li>
               <li>
                 <span className="icono-li">🅿️</span>
                 <span>Estacionamiento para clientes disponible</span>
               </li>
               <li>
-                <span className="icono-li">🚇</span>
-                <span>A pasos de Metro Departamental (L2)</span>
+                <span className="icono-li">🗺️</span>
+                <span>Sector Chillán, Región de Ñuble</span>
               </li>
               <li>
                 <span className="icono-li">✉️</span>

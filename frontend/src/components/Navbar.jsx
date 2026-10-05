@@ -69,7 +69,7 @@ export default function Navbar({ onBuscar, categoriaActiva, onSeleccionarCategor
             </div>
             <div className="topbar-der">
               <span className="topbar-info">
-                📍 DIRECCIÓN: Av. Departamental 1450, San Miguel, Santiago
+                📍 DIRECCIÓN: Calle Falkland Islands 777, Chillán
               </span>
               <span className="topbar-sep">|</span>
               <span className="topbar-info">

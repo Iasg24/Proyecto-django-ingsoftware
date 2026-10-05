@@ -46,7 +46,9 @@ const SLIDES = [
     colorAcento: '#DC2626',
     fondoGradiente: 'linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #7f1d1d 100%)',
     badge: 'N° 1 EN PROTECCIÓN VIAL',
-    destacados: ['Homologación DOT / ECE', 'Calota de fibra de carbono', 'Envío express a todo Chile']
+    destacados: ['Homologación DOT / ECE', 'Calota de fibra de carbono', 'Envío express a todo Chile'],
+    imagen: '/imagenes/carrusel/carrusel-casco.png',
+    imagenAlt: 'Casco Nexx Integral Adventure Pro'
   },
   {
     tag: 'MÁXIMA POTENCIA & RENDIMIENTO',
@@ -58,7 +60,9 @@ const SLIDES = [
     colorAcento: '#EA580C',
     fondoGradiente: 'linear-gradient(135deg, #18181b 0%, #27272a 50%, #991b1b 100%)',
     badge: 'CALIDAD Y DURABILIDAD RACING',
-    destacados: ['Pastillas cero ruidos', 'Cadenas con o-ring sellado', 'Stock con despacho inmediato']
+    destacados: ['Pastillas cero ruidos', 'Cadenas con o-ring sellado', 'Stock con despacho inmediato'],
+    imagen: '/imagenes/carrusel/carrusel-repuestos.png',
+    imagenAlt: 'Aceite Liqui Moly 15W-50 Street y Shooter'
   },
   {
     tag: 'AGARRE & TRACCIÓN TOTAL',
@@ -70,7 +74,9 @@ const SLIDES = [
     colorAcento: '#16A34A',
     fondoGradiente: 'linear-gradient(135deg, #09090b 0%, #1c1917 50%, #14532d 100%)',
     badge: 'AGARRE EN TODO CLIMA',
-    destacados: ['Compuesto de alta tracción', 'Homologados para carretera', 'Instalación garantizada']
+    destacados: ['Compuesto de alta tracción', 'Homologados para carretera', 'Instalación garantizada'],
+    imagen: '/imagenes/carrusel/carrusel-neumaticos.png',
+    imagenAlt: 'Neumáticos Michelin Road 6 Moto'
   }
 ]
 
@@ -300,10 +306,14 @@ export default function Catalogo() {
               {/* Elemento visual representativo */}
               <div className="hero-visual-box">
                 <div className="circulo-fondo-hero"></div>
-                <div className="moto-gran-icono">🏍️</div>
+                <img
+                  src={slide.imagen}
+                  alt={slide.imagenAlt || slide.titulo}
+                  className="hero-imagen-slide"
+                />
                 <div className="tarjeta-flotante-hero">
                   <span className="badge-calidad">{slide.badge}</span>
-                  <strong>Stock en Santiago</strong>
+                  <strong>Stock en Chillán</strong>
                   <small>Despacho el mismo día</small>
                 </div>
               </div>
@@ -613,11 +623,11 @@ export default function Catalogo() {
                         required
                       />
                     </label>
-                    <label>RUT
+                    <label>RUT (opcional)
                       <input
-                        value={misDatos.rut}
+                        value={misDatos.rut || ''}
                         onChange={(e) => setMisDatos({ ...misDatos, rut: e.target.value })}
-                        required
+                        placeholder="Ej: 12.345.678-9"
                       />
                     </label>
                     <label>Email
@@ -665,7 +675,7 @@ export default function Catalogo() {
                     </div>
                     <div className="item-dato">
                       <span className="label-dato">RUT:</span>
-                      <strong>{misDatos.rut}</strong>
+                      <strong>{misDatos.rut || 'No especificado'}</strong>
                     </div>
                     <div className="item-dato">
                       <span className="label-dato">Email:</span>
@@ -759,7 +769,7 @@ export default function Catalogo() {
                 <div className="modal-stock-linea">
                   <span>Disponibilidad:</span>
                   {productoSeleccionado.stock > 0 ? (
-                    <strong className="stock-ok">● {productoSeleccionado.stock} unidades en bodega Santiago</strong>
+                    <strong className="stock-ok">● {productoSeleccionado.stock} unidades en bodega Chillán</strong>
                   ) : (
                     <strong className="stock-sin">Sin stock por el momento</strong>
                   )}
