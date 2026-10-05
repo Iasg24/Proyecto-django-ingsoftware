@@ -4,7 +4,7 @@
 #
 # Levanta (o apaga) los TRES servicios en el orden correcto:
 #   1. MongoDB   (la base de datos)     -> puerto 27017
-#   2. Backend   (Django + la API)      -> puerto 8000
+#   2. Backend   (FastAPI, la API)      -> puerto 8000
 #   3. Frontend  (React / Vite)         -> puerto 5173
 #
 # Uso:
@@ -41,7 +41,6 @@ stop_all() {
   echo "⏹ Apagando el sistema..."
   "$DIR/scripts/frontend.sh" stop
   "$DIR/scripts/backend-fastapi.sh" stop
-  "$DIR/scripts/backend.sh" stop 2>/dev/null
   "$DIR/scripts/mongo.sh" stop
   echo "Todo apagado."
 }
@@ -50,7 +49,6 @@ status_all() {
   echo "Estado del sistema:"
   "$DIR/scripts/mongo.sh" status
   if pgrep -f "uvicorn main:app" > /dev/null; then echo "Backend FastAPI: CORRIENDO"; else echo "Backend FastAPI: DETENIDO"; fi
-  if [ -f /tmp/backend.pid ]; then echo "Backend Django: CORRIENDO (PID $(cat /tmp/backend.pid))"; else echo "Backend Django: DETENIDO"; fi
   if [ -f /tmp/frontend.pid ]; then echo "Frontend: CORRIENDO (PID $(cat /tmp/frontend.pid))"; else echo "Frontend: DETENIDO"; fi
 }
 

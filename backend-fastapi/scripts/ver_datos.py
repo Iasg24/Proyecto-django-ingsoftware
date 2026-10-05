@@ -1,32 +1,21 @@
 """
-ver_datos.py — Visor rápido de los datos de MongoDB.
+ver_datos.py — Visor rápido de los datos de MongoDB (sin Django).
+Muestra todas las colecciones con su cantidad de documentos y un ejemplo.
 
-Muestra todas las colecciones de la base "tienda_repuestos" con su
-cantidad de documentos y un ejemplo de cada una. Útil para demostrar
-en la defensa que los datos están realmente guardados.
-
-Uso (desde la carpeta del proyecto):  scripts/ver_datos.sh
+Uso (desde la raíz del proyecto):  scripts/ver_datos.sh
 """
 import os
 import sys
 
-# El módulo "config" (Django) vive en backend/: lo agregamos al path
-# para poder ejecutar el script desde cualquier carpeta.
-BACKEND_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, BACKEND_DIR)
-
-import django
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
-django.setup()
+BACKEND = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, BACKEND)
 
 from database import db
-import json
 
 COLECCIONES = ['usuarios', 'tokens', 'ventas', 'productos', 'clientes', 'pedidos', 'dia', 'folios']
 
 print("=" * 70)
-print(f"BASE DE DATOS: tienda_repuestos (MongoDB)")
+print("BASE DE DATOS: tienda_repuestos (MongoDB)")
 print("=" * 70)
 
 for nombre in COLECCIONES:
@@ -34,7 +23,6 @@ for nombre in COLECCIONES:
     total = coleccion.count_documents({})
     print(f"\n📁 Colección: {nombre}  ({total} documento{'s' if total != 1 else ''})")
 
-    # Ejemplo: primer documento (ocultando contraseñas)
     doc = coleccion.find_one()
     if doc is None:
         continue
@@ -43,7 +31,6 @@ for nombre in COLECCIONES:
     if 'password_hash' in limpio:
         limpio['password_hash'] = '******** (hash)'
 
-    # Mostrar campos más relevantes de forma legible
     if nombre == 'ventas':
         print(f"   Ejemplo -> folio: {limpio.get('folio')} | {limpio.get('producto')} "
               f"x{limpio.get('cantidad')} | neto {limpio.get('neto')} | IVA {limpio.get('iva')} "

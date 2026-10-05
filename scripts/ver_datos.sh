@@ -6,4 +6,4 @@
 # Uso:  scripts/ver_datos.sh
 # =============================================================================
 DIR="$(cd "$(dirname "$0")/.." && pwd)"
-"$DIR/backend/venv/bin/python" "$DIR/backend/scripts/ver_datos.py"
+"$DIR/backend-fastapi/venv/bin/python" "$DIR/backend-fastapi/scripts/ver_datos.py"
