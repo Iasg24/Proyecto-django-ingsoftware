@@ -51,16 +51,6 @@ scripts/backend-fastapi.sh start
 
 El frontend (5173) funciona igual con cualquiera de los dos.
 
-## 5. Cómo defender esto en la interrogación
-
-> "Después de entregar el informe, hice un refactoring que demuestra la
-> arquitectura: reemplacé Django por FastAPI en el backend y el frontend
-> React no requirió NINGÚN cambio, porque ambas versiones exponen el mismo
-> contrato de API. Incluso las contraseñas de los usuarios siguieron
-> funcionando, porque mantuve el mismo formato de hash. Eso es lo que
-> significa desacoplar capas: cambiar un motor sin tocar la carrocería."
-
-## 6. Evidencia verificable
 
 - Rama de Git: `feature/fastapi` (el main conserva la versión Django)
 - Prueba de punta a punta ejecutada: login → abrir día → venta con IVA →

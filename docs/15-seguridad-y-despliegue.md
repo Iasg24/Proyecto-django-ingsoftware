@@ -37,12 +37,3 @@ como pide el enunciado).
 7. **Probar**: login con las contraseñas de producción, catálogo, carrito,
    pedido y pago con la tarjeta de prueba de Stripe.
 
-## 3. Cómo defenderlo en la interrogación
-
-> "Antes de publicar detecté que las credenciales de desarrollo estaban
-> expuestas: cualquiera podría entrar como jefe. Apliqué tres capas de
-> seguridad: contraseñas fuertes con hash, las credenciales de prueba
-> salen del build de producción automáticamente, y CORS restringido al
-> dominio real. El despliegue propuesto usa la nube del enunciado
-> (AWS/OCI): Nginx + uvicorn + MongoDB Atlas, tal como muestra mi
-> diagrama de despliegue."
